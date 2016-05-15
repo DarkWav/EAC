@@ -9,9 +9,7 @@ This Plugin is for ImagicalMine: [ImagicalMine.net](http://adf.ly/1YbrDu)
 
 This plugin blocks ForceGameMode, OneHit and Unkillable.
 
-#Warning: This Plugin may be / is incompatible with Genisys because it was made for ImagicalMine!
-
-# You Won´t get support if you´re using Genisys!
+#Warning: This Plugin may be / is incompatible with Genisys because it was made for ImagicalMine! You Won´t get support if you´re using Genisys!
 
 # If there are problems with PocketMine-MP, I`ll try to slove them, but I don´t guarantee that all pocketmine problems are sloveable.
 
