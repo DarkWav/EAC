@@ -13,4 +13,6 @@ This plugin blocks ForceGameMode, OneHit and Unkillable.
 
 # You Won´t get support if you´re using Genisys!
 
+# If there are problems with PocketMine-MP, I`ll try to slove them, but I don´t guarantee that all pocketmine problems are sloveable.
+
 # [Download Now](https://forums.imagicalmine.net/plugins/eac-evilanticheat.52/download?version=542)
