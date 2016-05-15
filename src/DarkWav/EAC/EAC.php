@@ -41,13 +41,12 @@ class EAC extends PluginBase implements Listener{
     $this->yml = $yml->getAll();
   	$this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > EvilAntiCheat Activated");
     $this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > Shield Activated");
-	$this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > EvilAntiCheat v1.1 [Racoon]");
+	$this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > EvilAntiCheat v1.2.1 [Racoon]");
 	if($this->yml["ForceGameMode"] == "true"){$this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > Enabling AntiForceGameMode");}
 	if($this->yml["ForceField"] == "true"){$this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > Enabling AntiForceField");}
 	if($this->yml["OneHit"] == "true"){$this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > Enabling AntiOneHit");}
 	if($this->yml["Unkillable"] == "true"){$this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > Enabling AntiUnkillable");}
 	if($this->yml["AntiKnockBack"] == "true"){$this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > Enabling AntiAntiKnockBack");}
-	if($this->yml["KillAura"] == "true"){$this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > Enabling AntiAura");}
 
     }
 
@@ -65,7 +64,7 @@ class EAC extends PluginBase implements Listener{
     
           if(!isset($args[0])){
           
-             $sender->sendMessage(TextFormat::RED."[EAC] > EvilAntiCheat v1.1 [Racoon] ~ DarkWav (Darku)");
+             $sender->sendMessage(TextFormat::RED."[EAC] > EvilAntiCheat v1.2.1 [Racoon] ~ DarkWav (Darku)");
               
             }
 
@@ -93,6 +92,8 @@ class EAC extends PluginBase implements Listener{
 	           if($player !== $player and !$player->hasPermission("none")){
               
                $k->kickPlayer($c->getPlayer)->kickMessage(TextFormat::RED."[EAC] > You were kicked for hacking ForceGameMode!");
+
+			   $c->getPlayer()->kick();
 
 			   $this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > $k->getPlayer() is hacking ForceGameMode!");
    
@@ -155,6 +156,10 @@ class EAC extends PluginBase implements Listener{
 
 	     $k->kickPlayer($e->getEntity())->kickMessage(TextFormat::RED."[EAC] > You were kicked for hacking Unkillable!");
 
+		 $d->getEntity()->kickPlayer()->kickMessage(TextFormat::RED."[EAC] > You were kicked for hacking Unkillable!");
+
+		 $d->getEntity()->kick();
+
 		 $this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > $k->getPlayer() is hacking Unkillable!");
 
 	     }
@@ -175,6 +180,10 @@ class EAC extends PluginBase implements Listener{
 
 	     $k->kickPlayer($e->getDamager())->kickMessage(TextFormat::RED."[EAC] > You were kicked for hacking OneHit!");
 
+		 $e->getDamager->kickPlayer()->kickMessage(TextFormat::RED."[EAC] > You were kicked for hacking OneHit!");
+
+		 $e->getDamager->kick();
+
 		 $this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > $k->getPlayer() is hacking OneHit!");
 
 	     }
@@ -192,6 +201,10 @@ class EAC extends PluginBase implements Listener{
 	     if($e->getKnockBack() < 0.7) {
 
 	     $k->kickPlayer($e->getEntity())->kickMessage(TextFormat::RED."[EAC] > You were kicked for hacking AntiKnockBack!");
+
+		 $e->getDamager->kickPlayer()->kickMessage(TextFormat::RED."[EAC] > You were kicked for hacking AntiKnockBack!");
+
+		 $e->getDamager->kick();
 
 		 $this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > $k->getPlayer() is hacking AntiKnockback!");
 
@@ -213,25 +226,7 @@ class EAC extends PluginBase implements Listener{
 
 		 $e->getDamager->kickPlayer()->kickMessage(TextFormat::RED."[EAC] > You were kicked for hacking ForceField!");
 
-		 $this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > $k->getPlayer() is hacking ForceField!");
-
-	     }
-
-	     }
-
-		 }
-
-	//KillAura-Detection
-
-    elseif($e->getDamager() instanceof Player){
-
-	if($this->yml["ForceField"] == "true"){
-
-	     if($d->getEntity() > 1) {
-
-	     $k->kickPlayer($e->getDamager())->kickMessage(TextFormat::RED."[EAC] > You were kicked for hacking ForceField!");
-
-		 $e->getDamager->kickPlayer()->kickMessage(TextFormat::RED."[EAC] > You were kicked for hacking ForceField!");
+		 $e->getDamager->kick();
 
 		 $this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > $k->getPlayer() is hacking ForceField!");
 
