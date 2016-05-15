@@ -9,6 +9,6 @@ This Plugin is for ImagicalMine: [ImagicalMine.net](http://adf.ly/1YbrDu)
 
 This plugin blocks ForceGameMode, OneHit and Unkillable.
 
-#Warning: This Plugin may be incompatible with Genisys because it was made for ImagicalMine!
+#Warning: This Plugin may be / is incompatible with Genisys because it was made for ImagicalMine!
 
 # [Download Now](https://forums.imagicalmine.net/plugins/eac-evilanticheat.52/download?version=542)
