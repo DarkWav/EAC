@@ -12,7 +12,7 @@
 # This Plugin is for ImagicalMine: [ImagicalMine.net](http://adf.ly/1YbrDu)
 
 
-# This plugin blocks ForceGameMode, OneHit and Unkillable.
+# This plugin blocks ForceGameMode, OneHit, Unkillable, AntiKnockBack and ForceField.
 
 
 #Warning: This Plugin may be / is incompatible with Genisys because it was made for ImagicalMine! You Won´t get support if you´re using Genisys!
