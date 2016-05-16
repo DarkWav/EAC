@@ -41,7 +41,7 @@ class EAC extends PluginBase implements Listener{
     $this->yml = $yml->getAll();
   	$this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > EvilAntiCheat Activated");
     $this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > Shield Activated");
-	$this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > EvilAntiCheat v1.2.1 [Racoon]");
+	$this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > EvilAntiCheat v1.2.5 [Racoon]");
 	if($this->yml["ForceGameMode"] == "true"){$this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > Enabling AntiForceGameMode");}
 	if($this->yml["ForceField"] == "true"){$this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > Enabling AntiForceField");}
 	if($this->yml["OneHit"] == "true"){$this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > Enabling AntiOneHit");}
@@ -64,7 +64,7 @@ class EAC extends PluginBase implements Listener{
     
           if(!isset($args[0])){
           
-             $sender->sendMessage(TextFormat::RED."[EAC] > EvilAntiCheat v1.2.1 [Racoon] ~ DarkWav (Darku)");
+             $sender->sendMessage(TextFormat::RED."[EAC] > EvilAntiCheat v1.2.5 [Racoon] ~ DarkWav (Darku)");
               
             }
 
@@ -90,10 +90,8 @@ class EAC extends PluginBase implements Listener{
 	//Checks permissions.
 
 	           if($player !== $player and !$player->hasPermission("none")){
-              
-               $k->kickPlayer($c->getPlayer)->kickMessage(TextFormat::RED."[EAC] > You were kicked for hacking ForceGameMode!");
 
-			   $c->getPlayer()->kick();
+			   $c->getPlayer()->kick(TextFormat::RED."[EAC] > You were kicked for hacking ForceGameMode!");
 
 			   $this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > $k->getPlayer() is hacking ForceGameMode!");
    
@@ -112,7 +110,7 @@ class EAC extends PluginBase implements Listener{
 
     //EssentialsPE hook.
            
-               $player->sendMessage(TextFormat::RED."[EAC] > You passed Gamemode changeing [Hooked into EssentialsPE]!");
+               $player->sendMessage(TextFormat::RED."[EAC] > You passed Gamemode changeing!");
               
     }
 
@@ -148,17 +146,11 @@ class EAC extends PluginBase implements Listener{
 
 	//Unkillable-Detection
 
-	if($e->getEntity() instanceof Player){
-
 	     if($this->yml["Unkillable"] == "true"){
 
-	     if($d->getDamage() < 1) {
+	     if($d->getDamage() < 0.5) {
 
-	     $k->kickPlayer($e->getEntity())->kickMessage(TextFormat::RED."[EAC] > You were kicked for hacking Unkillable!");
-
-		 $d->getEntity()->kickPlayer()->kickMessage(TextFormat::RED."[EAC] > You were kicked for hacking Unkillable!");
-
-		 $d->getEntity()->kick();
+		 $d->getEntity()->kick(TextFormat::RED."[EAC] > You were kicked for hacking Unkillable!");
 
 		 $this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > $k->getPlayer() is hacking Unkillable!");
 
@@ -166,23 +158,15 @@ class EAC extends PluginBase implements Listener{
 
 	     }
 
-		 }
-
 	//OneHit-Detection
-
-	elseif($e->getDamager() instanceof Player){
 
 	  if($this->yml["OneHit"] == "true"){
 
-	     if($d->getDamage() > 19) {
+	     if($d->getDamage() > 19.5) {
 
 	     //Kicks the Hacker.
 
-	     $k->kickPlayer($e->getDamager())->kickMessage(TextFormat::RED."[EAC] > You were kicked for hacking OneHit!");
-
-		 $e->getDamager->kickPlayer()->kickMessage(TextFormat::RED."[EAC] > You were kicked for hacking OneHit!");
-
-		 $e->getDamager->kick();
+		 $e->getDamager()->kick(TextFormat::RED."[EAC] > You were kicked for hacking OneHit!");
 
 		 $this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > $k->getPlayer() is hacking OneHit!");
 
@@ -190,21 +174,13 @@ class EAC extends PluginBase implements Listener{
 
 		 }
 
-         }
-
 	//AntiKnockBack-Detection
-
-    elseif($e->getEntity() instanceof Player){
 
 	if($this->yml["AntiKnockBack"] == "true"){
 
-	     if($e->getKnockBack() < 0.7) {
+	     if($e->getKnockBack() < 0.6) {
 
-	     $k->kickPlayer($e->getEntity())->kickMessage(TextFormat::RED."[EAC] > You were kicked for hacking AntiKnockBack!");
-
-		 $e->getDamager->kickPlayer()->kickMessage(TextFormat::RED."[EAC] > You were kicked for hacking AntiKnockBack!");
-
-		 $e->getDamager->kick();
+		 $e->getEntity()->kick(TextFormat::RED."[EAC] > You were kicked for hacking AntiKnockBack!");
 
 		 $this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > $k->getPlayer() is hacking AntiKnockback!");
 
@@ -212,29 +188,19 @@ class EAC extends PluginBase implements Listener{
 
 	     }
 
-		 }
-
     //ForceField-Detection
-
-    elseif($e->getDamager() instanceof Player){
 
 	if($this->yml["ForceField"] == "true"){
 
 	     if($e->getEntity() > 1) {
 
-	     $k->kickPlayer($e->getDamager())->kickMessage(TextFormat::RED."[EAC] > You were kicked for hacking ForceField!");
-
-		 $e->getDamager->kickPlayer()->kickMessage(TextFormat::RED."[EAC] > You were kicked for hacking ForceField!");
-
-		 $e->getDamager->kick();
+		 $e->getDamager()->kick(TextFormat::RED."[EAC] > You were kicked for hacking ForceField!");
 
 		 $this->getServer()->getLogger()->info(TextFormat::RED."[EAC] > $k->getPlayer() is hacking ForceField!");
 
 	     }
 
 	     }
-
-		 }
 
 }
 

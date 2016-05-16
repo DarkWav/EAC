@@ -1,6 +1,6 @@
 name: EAC
 main: DarkWav\EAC\EAC
-version: 1.2.1
+version: 1.2.5
 load: STARTUP
 author: DarkWav (Darku)
 api: ["3.0.0",2.1.0","2.0.0","1.14.0","1.13.2","1.0.0"]
