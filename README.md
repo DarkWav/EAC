@@ -24,4 +24,4 @@
 # Please mark issues with the label of your platform.
 
 
-# [Download Now](https://forums.imagicalmine.net/plugins/eac-evilanticheat.52/download?version=542)
+# [Download Now](https://forums.imagicalmine.net/plugins/eac-evilanticheat.52/download?version=561)
